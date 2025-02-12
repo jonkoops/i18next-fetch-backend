@@ -1,24 +1,28 @@
-name: node
-
+name: Node.js
 on:
   push:
     branches:
       - main
-
+  pull_request:
 jobs:
   test:
-    name: Test on node ${{ matrix.node }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: Test on Node.js v${{ matrix.node-version }}
+    runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        node: [ '20.x', '18.x', '16.x' ]
-        # os: [ubuntu-latest, windows-latest, macOS-latest]
-        os: [ubuntu-latest]
+        node-version: [18.x, 20.x, 22.x, 23.x]
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node.js
+      - name: Check-out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
-      - run: npm install
-      - run: npm test
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
