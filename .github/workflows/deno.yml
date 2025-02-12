@@ -1,24 +1,25 @@
-name: deno
-
+name: Deno
 on:
   push:
     branches:
       - main
-
+  pull_request:
 jobs:
   test:
-    name: Test on deno ${{ matrix.deno }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: Test on Deno ${{ matrix.deno-version }}
+    runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        deno: [ '2.x', '1.x' ]
-        # os: [ubuntu-latest, windows-latest, macOS-latest]
-        os: [ubuntu-latest]
+        deno-version: [v1.x, v2.x]
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup Deno
-        uses: denolib/setup-deno@master
+      - name: Check-out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Deno
+        uses: denoland/setup-deno@v2
         with:
-          deno-version: ${{ matrix.deno }}
-      - run: deno --version
-      - run: deno test --allow-net test/deno/*.js
+          deno-version: ${{ matrix.deno-version }}
+
+      - name: Run tests
+        run: deno test --allow-net test/deno/*.js
