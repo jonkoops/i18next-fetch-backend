@@ -1,6 +1,6 @@
 import expect from 'expect.js'
 import i18next from 'i18next'
-import Http from '../index.js'
+import Http from '../lib/index.js'
 import server from './fixtures/server.js'
 
 i18next.init()

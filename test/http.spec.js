@@ -1,5 +1,5 @@
 import expect from 'expect.js'
-import Http from '../index.js'
+import Http from '../lib/index.js'
 import i18next from 'i18next'
 import JSON5 from 'json5'
 import { parse as parseJSONC } from 'jsonc-parser'
