@@ -1,8 +1,0 @@
-{
-  "message": {
-    "hello": "Hallo!! - DE"
-  },
-  "tos": "Nutzungsbedingungen",
-  "term": "Ich akzeptiere {{0}}. {{1}}",
-  "loadbundle": "Bundle Laden {{lang}}"
-}
