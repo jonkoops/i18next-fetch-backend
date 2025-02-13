@@ -1,6 +1,6 @@
 import { assertEquals } from 'https://deno.land/std/testing/asserts.ts'
 import i18next from 'https://deno.land/x/i18next/index.js'
-import Http from '../../index.js'
+import Http from '../../lib/index.js'
 import server from './fixtures/server.js'
 const { test } = Deno
 
