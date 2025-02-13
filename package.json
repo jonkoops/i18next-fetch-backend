@@ -15,24 +15,12 @@
     "cross-fetch": "4.1.0"
   },
   "devDependencies": {
-    "dtslint": "4.2.1",
-    "eslint": "8.56.0",
-    "eslint-config-standard": "17.1.0",
-    "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-n": "16.6.2",
-    "eslint-plugin-promise": "6.1.1",
-    "eslint-plugin-require-path-exists": "1.1.9",
-    "eslint-plugin-standard": "5.0.0",
     "expect.js": "0.3.1",
     "i18next": "24.0.0",
     "json-server": "0.17.4",
     "json5": "2.2.3",
     "jsonc-parser": "3.3.1",
     "mocha": "10.8.2",
-    "tsd": "0.31.2",
-    "tslint": "5.20.1",
-    "typescript": "5.6.3",
-    "uglify-js": "3.19.3",
     "xmlhttprequest": "1.8.0"
   },
   "description": "i18next-http-backend is a backend layer for i18next using in Node.js, in the browser and for Deno.",
@@ -51,11 +39,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "lint": "eslint .",
     "test:xmlhttpreq": "mocha test -R spec --require test/fixtures/xmlHttpRequest.cjs --experimental-modules",
     "test:fetch": "mocha test -R spec --experimental-modules",
-    "test": "npm run lint && npm run test:fetch && npm run test:xmlhttpreq && npm run test:typescript",
-    "test:typescript": "tslint --project tsconfig.json",
+    "test": "npm run test:fetch && npm run test:xmlhttpreq",
     "test:deno": "deno test --allow-net test/deno/*.js",
     "preversion": "npm run test && npm run build && git push",
     "postversion": "git push && git push --tags"
