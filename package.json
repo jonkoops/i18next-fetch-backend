@@ -11,17 +11,13 @@
       "default": "./lib/index.js"
     }
   },
-  "dependencies": {
-    "cross-fetch": "4.1.0"
-  },
   "devDependencies": {
     "expect.js": "0.3.1",
     "i18next": "24.0.0",
     "json-server": "0.17.4",
     "json5": "2.2.3",
     "jsonc-parser": "3.3.1",
-    "mocha": "10.8.2",
-    "xmlhttprequest": "1.8.0"
+    "mocha": "10.8.2"
   },
   "description": "i18next-http-backend is a backend layer for i18next using in Node.js, in the browser and for Deno.",
   "keywords": [
@@ -39,9 +35,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "test:xmlhttpreq": "mocha test -R spec --require test/fixtures/xmlHttpRequest.cjs --experimental-modules",
-    "test:fetch": "mocha test -R spec --experimental-modules",
-    "test": "npm run test:fetch && npm run test:xmlhttpreq",
+    "test": "mocha test -R spec",
     "test:deno": "deno test --allow-net test/deno/*.js",
     "preversion": "npm run test && npm run build && git push",
     "postversion": "git push && git push --tags"
