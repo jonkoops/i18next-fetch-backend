@@ -1,15 +1,36 @@
 {
-  "name": "i18next-http-backend",
-  "version": "3.0.2",
-  "type": "module",
-  "files": [
-    "lib"
+  "name": "i18next-fetch-backend",
+  "version": "1.0.0",
+  "description": "A backend plugin for i18next to load translations using the Fetch API.",
+  "keywords": [
+    "i18next",
+    "i18next-backend",
+    "i18next-fetch-backend",
+    "i18next-http-backend",
+    "i18next-xhr-backend"
   ],
+  "homepage": "https://github.com/jonkoops/i18next-fetch-backend",
+  "bugs": {
+    "url": "https://github.com/jonkoops/i18next-fetch-backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jonkoops/i18next-fetch-backend.git"
+  },
+  "license": "MIT",
+  "type": "module",
   "exports": {
     ".": {
       "types": "./lib/index.d.ts",
       "default": "./lib/index.js"
     }
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "mocha test -R spec",
+    "test:deno": "deno test --allow-net test/deno/*.js"
   },
   "devDependencies": {
     "expect.js": "0.3.1",
@@ -18,29 +39,5 @@
     "json5": "2.2.3",
     "jsonc-parser": "3.3.1",
     "mocha": "10.8.2"
-  },
-  "description": "i18next-http-backend is a backend layer for i18next using in Node.js, in the browser and for Deno.",
-  "keywords": [
-    "i18next",
-    "i18next-backend",
-    "i18next-http-backend"
-  ],
-  "homepage": "https://github.com/i18next/i18next-http-backend",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/i18next/i18next-http-backend.git"
-  },
-  "bugs": {
-    "url": "https://github.com/i18next/i18next-http-backend/issues"
-  },
-  "license": "MIT",
-  "scripts": {
-    "test": "mocha test -R spec",
-    "test:deno": "deno test --allow-net test/deno/*.js",
-    "preversion": "npm run test && npm run build && git push",
-    "postversion": "git push && git push --tags"
-  },
-  "tsd": {
-    "directory": "test/typescript"
   }
 }
