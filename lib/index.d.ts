@@ -63,14 +63,6 @@ export interface HttpBackendOptions {
     namespaces: string[]
   ): { [key: string]: any } | undefined;
   /**
-   * allow cross domain requests
-   */
-  crossDomain?: boolean;
-  /**
-   * allow credentials on cross domain requests
-   */
-  withCredentials?: boolean;
-  /**
    * define a custom xhr function
    * can be used to support XDomainRequest in IE 8 and 9
    */
